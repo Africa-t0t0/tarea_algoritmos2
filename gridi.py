@@ -55,7 +55,13 @@ def construirPokeVacunatorio(n):
     for i in range(11):
         if matriz[n][i] == 1:
             cobertura[i] = 1
-    
+
+def cost():
+    cost = 0
+    for i in range(0, 11):
+        if sol[i] == 1:
+            cost += costo[i]
+    return cost
 
 def gridi():
     seed = randrange(11)
@@ -76,4 +82,5 @@ for i in range(20):
     
     gridi()
     print(sol)
+    print(cost())
     print("--------------------")
