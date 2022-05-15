@@ -74,7 +74,7 @@ if __name__ == "__main__":
     semillas = [18064, 7113, 58232, 71014, 66026, 37769, 3298, 49750, 40300,
                 55001, 45703, 24510, 9661, 80395, 14510, 95231, 17445, 61022, 36431, 95647]
 
-    for i in range(1):
+    for i in range(20):
         random.seed(semillas[i])
         print("Semilla : " + str(semillas[i]))
 
