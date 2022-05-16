@@ -29,8 +29,8 @@ def elegirComuna():
             ab = ab + matriz[i][j]
         a = costo[i]/ab #se divide el costo de la construcción por la cantidad de comunas que se puede cubrir actualmente
 
-        costo_ponderado_comunas.append(a)
         comunas_posibles.append(i)
+        costo_ponderado_comunas.append(a)
     # choices elige aleatoriamente una comuna de comunas_posibles dependiendo del peso en weights
     # dado que el menor costo es la mejor comuna, le damos más peso a la menor comuna usando 1/costo
     # un menor costo dará un número más alto, por ende mayor probabilidad de elección al tener menor costo.
@@ -44,11 +44,10 @@ def construirPokeVacunatorio(n):
         #Buscar las comunas contiguas a la seleccionada y marcarlas como cubiertas
         if matriz[n][i] == 1:
             cobertura[i] = 1
-    
 
 def greedy():
+    #mientras no esté todo cubierto, seguir construyendo 
     while (sum(cobertura) != len(costo)):
-        #mientras no esté todo cubierto, seguir construyendo 
         construirPokeVacunatorio(elegirComuna())
 
 if __name__ == "__main__":
@@ -76,13 +75,13 @@ if __name__ == "__main__":
 
     for i in range(20):
         random.seed(semillas[i])
-        print("Semilla : " + str(semillas[i]))
+        print("Semilla {}: ".format(i+1) + str(semillas[i]))
 
         sol = [0,0,0,0,0,0,0,0,0,0,0]
         cobertura = [0,0,0,0,0,0,0,0,0,0,0]
     
         greedy()
 
-        print("Solución : " + str(sol))
-        print("Costo total : " + str(costoSolucion()))
+        print("Solución: " + str(sol))
+        print("Costo total: " + str(costoSolucion()))
         print("--------------------")
